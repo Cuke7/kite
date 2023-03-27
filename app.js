@@ -35,7 +35,7 @@ function draw() {
     phi = container.dataset.phi;
     theta = container.dataset.theta;
     psi = container.dataset.psi;
-    background(0)
+    background("white")
     if (demo == "data") orbitControl(1, 1, 0)
     translate(0, r / 2, 0)
     rotateZ(PI / 2)
@@ -51,7 +51,7 @@ function draw() {
         psi = map(sin(frameCount / 100), -1, 1, radians(0), radians(360));
     }
     plotKite(phi, theta, psi, () => {
-        fill('magenta')
+        fill('blue')
         noStroke()
         triangle(0, r / 8, 0, -r / 8, -r / 10, 0)
     })
@@ -60,9 +60,8 @@ function draw() {
 
 const plotRepere = (scale) => {
     strokeWeight(2)
-    stroke("white")
+    stroke("black")
     line(0, 0, 0, scale, 0, 0)
-    stroke("white")
     line(0, 0, 0, 0, -scale, 0)
     line(0, 0, 0, 0, scale, 0)
 
@@ -86,8 +85,8 @@ function plotKite(phi, theta, psi, plot) {
 
 
 function draw_arcs() {
+    stroke("black")
     noFill()
-    stroke("white")
     strokeWeight(0.3)
     for (rot = 0; rot <= PI / 2; rot += PI / 30) {
         push()
@@ -97,7 +96,6 @@ function draw_arcs() {
     }
     for (rot = 0; rot <= PI; rot += PI / 30) {
         push()
-        stroke("white")
         rotateY(PI / 2)
         rotateX(rot)
         arc(0, 0, 2 * r, 2 * r, 0, PI / 2)
