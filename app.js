@@ -7,7 +7,8 @@ window.addEventListener('load', (event) => {
 });
 
 let demo = null;
-let r = 300; // theter length
+let r = innerWidth * 0.9 / 2; // theter length
+r = Math.min(r, innerHeight * 0.9)
 let psi = 0;
 let phi = 0;
 let theta = 0;
@@ -26,6 +27,8 @@ function mouseWheel(event) {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+    r = innerWidth * 0.9 / 2;
+    r = Math.min(r, innerHeight * 0.9)
 }
 
 function draw() {
@@ -34,7 +37,7 @@ function draw() {
     psi = container.dataset.psi;
     background(0)
     if (demo == "data") orbitControl(1, 1, 0)
-    translate(0, windowHeight / 5, 0)
+    translate(0, r / 2, 0)
     rotateZ(PI / 2)
     rotateY(PI / 2)
     plotRepere(r)
@@ -50,7 +53,7 @@ function draw() {
     plotKite(phi, theta, psi, () => {
         fill('magenta')
         noStroke()
-        triangle(0, 50, 0, -50, -30, 0)
+        triangle(0, r / 8, 0, -r / 8, -r / 10, 0)
     })
     draw_arcs()
 }
