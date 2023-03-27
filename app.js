@@ -6,6 +6,14 @@ window.addEventListener('load', (event) => {
     container = document.getElementById("container")
 });
 
+window.addEventListener(
+    "message",
+    (event) => {
+        console.log(event)
+    },
+    false
+);
+
 let demo = null;
 let r = innerWidth * 0.9 / 2; // theter length
 r = Math.min(r, innerHeight * 0.9)
