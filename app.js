@@ -10,6 +10,7 @@ window.addEventListener(
     "message",
     (event) => {
         console.log(event)
+        theta = radians(45)
     },
     false
 );
