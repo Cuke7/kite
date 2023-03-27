@@ -53,7 +53,7 @@ function draw() {
     plotKite(phi, theta, psi, () => {
         fill('blue')
         noStroke()
-        triangle(0, r / 8, 0, -r / 8, -r / 10, 0)
+        triangle(0, r / 5, 0, -r / 5, -r / 8, 0)
     })
     draw_arcs()
 }
